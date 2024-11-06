@@ -4,23 +4,21 @@ import numpy as np
 import pydeck as pdk
 import qrcode
 from xgboost import XGBRegressor
-# GradientBoostingRegressor
-from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
 # Load the sensor data
 @st.cache_data
 def load_sensor_data():
-    return pd.read_csv('AI application/simulated_sensor_data.csv')
+    return pd.read_csv('simulated_sensor_data.csv')
 
 # Load the GTFS data (replace with your GTFS file path)
 @st.cache_data
 def load_gtfs_data():
-    stop_times = pd.read_csv('G:/VS Code/AI application/extracted_contents/stop_times.txt')
+    stop_times = pd.read_csv('stop_times.txt')
     return stop_times
 
-stops = pd.read_csv('G:/VS Code/AI application/extracted_contents/stops.txt')
+stops = pd.read_csv('stops.txt')
 
 # Preprocess the data
 def preprocess_data(sensor_data, stop_times):
